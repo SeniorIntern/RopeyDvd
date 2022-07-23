@@ -1,0 +1,133 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="RopeyDVD.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+    <head runat="server">
+    <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .dropbtn {
+            background-color: #24405c;
+            font-weight:bold;
+            font-family:Arial;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+       
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            color:black;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+
+    <%--disable page-scroll--%>
+    <body style="overflow:hidden;">
+        <form id="form1" runat="server">
+            <div>
+                <%--Header section--%>
+                <div style="text-align:left; background-color:#24405c; color:white; font-family: Arial; font-size: medium; text-decoration: none; font-style: normal; font-weight: bold; line-height: inherit; margin-top:0">
+                    <%--<img src="/images/site_logo.png" alt="logo" width="40" height="40"/>--%>
+                    <%-- function 1,2 --%>                    
+                    <div class="dropdown">
+                        <button class="dropbtn">Actor <i class="fa fa-angle-down"></i></button>
+                        <div class="dropdown-content">
+                            <asp:LinkButton ID="LinkButtonActors" runat="server" OnClick="LinkButtonActors_Click" ForeColor="Black" Font-Underline="False">Cast Member</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButtonDvd" runat="server" OnClick="LinkButtonDvd_Click" ForeColor="Black" Font-Underline="False" style="margin-left:14px" >Dvd Copies</asp:LinkButton>
+                        </div>
+                    </div>
+                    <%-- function 3,4,5 --%>
+                    <div class="dropdown">
+                        <button class="dropbtn">DVDs <i class="fa fa-angle-down"></i></button>
+                        <div class="dropdown-content">
+                            <asp:LinkButton ID="LinkButtonMembers" runat="server" Font-Underline="False" OnClick="LinkButtonMembers_Click">Loaned Dvd</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButtonDvdDetails" runat="server" Font-Underline="False" OnClick="LinkButtonDvdDetails_Click">Dvd Details</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButtonLoan" runat="server" OnClick="LinkButtonLoan_Click" Font-Underline="False">Copy Details</asp:LinkButton>
+                        </div>
+                    </div>
+
+                     <%-- function 8,12 --%>
+                    <div class="dropdown">
+                        <button class="dropbtn">Members <i class="fa fa-angle-down"></i></button>
+                        <div class="dropdown-content">
+                            <asp:LinkButton ID="LinkButtonMembersDvd" runat="server" Font-Underline="False" OnClick="LinkButtonMembersDvd_Click">Member Details</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButtonInactiveMembers" runat="server" Font-Underline="False" OnClick="LinkButtonInactiveMembers_Click">Inactive Members</asp:LinkButton>
+                        </div>
+                    </div>
+                    <%-- function 6--%>
+                    <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButton6_Click">Issue Copy</asp:LinkButton>
+                    &nbsp;
+                    <%--function 7--%>
+                    <asp:LinkButton ID="LinkButtonDvdReturn" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButtonDvdReturn_Click">Record Return</asp:LinkButton>
+                    &nbsp;
+                    <%--function 9--%>
+                    <asp:LinkButton ID="LinkButtonIssueDvd" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButtonIssueDvd_Click">New Dvd</asp:LinkButton>
+                    &nbsp;
+                    <%-- function 10--%>
+                    <asp:LinkButton ID="LinkButtonUnloanedDvds" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButtonUnloanedDvds_Click">Old Dvd</asp:LinkButton>
+                    &nbsp;
+                    <%-- function 11--%>
+                    <asp:LinkButton ID="LinkButtonLoanOnDay" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButtonDvdOnLoan_Click">DvdOnLoan</asp:LinkButton>
+                    &nbsp;
+                    <%-- function 13--%>
+                    <asp:LinkButton ID="LinkButtonUnsoldDvds" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButtonUnsoldDvds_Click">Unloaned Copies</asp:LinkButton>
+                    &nbsp;
+                    <%-- function 14s--%>
+                    <asp:LinkButton ID="LinkButtonAssistantSettings" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButtonAssistantSettings_Click" Visible="False">Setting</asp:LinkButton>
+                    &nbsp;                    
+                    <asp:LinkButton ID="LinkButtonManagerSettings" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButtonManagerSettings_Click">Settings</asp:LinkButton>
+                    <div style="float:right; margin-top:16px">
+                        <asp:LinkButton ID="LinkButtonLogin" runat="server" OnClick="LinkButtonLogin_Click" ForeColor="White" Font-Underline="False">Login</asp:LinkButton>
+                        &nbsp;
+                        <asp:LinkButton ID="LinkButtonLogout" runat="server" OnClick="LinkButtonLogout_Click" ForeColor="White" Font-Underline="False">Logout</asp:LinkButton>
+                        &nbsp;
+                    </div>
+                 </div>
+
+                <%--Footer section--%>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <footer>
+                    <p style="text-align:center; background-color:black; color:white; font-family: 'jetBrains Mono'; font-size: large; text-decoration: none; position: fixed; padding: 10px 10px 0px 10px; bottom: 0; width: 100%; height: 40px;">@2022 Copyrights belongs to Ropey DVDs</p>
+                </footer>
+            </div>
+        </form>
+    </body>
+</html>

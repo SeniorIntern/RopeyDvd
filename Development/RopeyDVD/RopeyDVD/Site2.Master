@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="RopeyDVD.Site2" %>
+
+<!DOCTYPE html>
+
+<html>
+    <head runat="server">
+        <title></title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </head>
+
+    <%--disable page-scroll--%>
+    <body style="overflow:hidden;">
+        <form id="form1" runat="server">
+            <div>
+                <div style="text-align:left; background-color:#24405c; color:white; font-family: Arial; font-size: medium; text-decoration: none; font-style: normal; font-weight: bold; line-height: 40px; margin-top:0">
+                    <%--Header section--%>
+                    <%-- function 1--%>
+                    <asp:LinkButton ID="LinkButtonFun1" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButtonFun1_Click">CastMember</asp:LinkButton>
+                    &nbsp;
+                    <%--function 2--%>
+                    <asp:LinkButton ID="LinkButtonFun2" runat="server" ForeColor="White" Font-Underline="False" OnClick="LinkButtonFun2_Click">DVD Copies</asp:LinkButton>
+                    &nbsp;
+                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <%--Footer section--%>
+                <footer>
+                    <p style="text-align:center; background-color:black; color:white; font-family: 'jetBrains Mono'; font-size: large; text-decoration: none; position: fixed; padding: 10px 10px 0px 10px; bottom: 0; width: 100%; height: 40px;">@2022 Copyrights belongs to Ropey DVDs</p>
+                </footer>
+            </div>
+        </form>
+    </body>
+</html>
